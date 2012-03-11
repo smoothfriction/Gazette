@@ -1,0 +1,24 @@
+﻿@model Gazette.Controllers.ArticleDetailViewModel
+
+<h2>@Model.Title</h2>
+<div class="postNav">
+    @if(Model.Previous != null)
+    {
+        @Html.ActionLink(Model.Previous.Title, "Details", new { id = Model.Next.Id })
+    }
+    @if (Model.Next != null)
+    {
+        @Html.ActionLink(Model.Next.Title, "Details", new { id = Model.Next.Id }, new { style = "float: right"})
+    }
+</div>
+<div class="article">
+    <div>
+        @Html.Raw(Model.Content)
+    </div>
+    <dl>
+        <dt>Author</dt>
+        <dd>@Model.Author</dd>
+        <dt>Published</dt>
+        <dd>@Model.Published.ToShortDateString() @@ @Model.Published.ToShortTimeString()</dd>
+    </dl>
+</div>

@@ -1,0 +1,12 @@
+﻿@model Gazette.Infrastructure.ArchiveEntry[]
+
+<div class="widget" id="archives">
+    <h2>Archives</h2>
+    <ul>
+        @foreach (var entry in Model)
+        {
+            <li><a href="#">@entry.Month.ToString("Y") (@entry.Count)</a></li>
+        }
+    </ul>
+</div>
+

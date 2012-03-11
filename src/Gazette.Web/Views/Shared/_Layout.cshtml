@@ -1,0 +1,58 @@
+<!doctype html>
+<html>
+<head>
+	<title>@(ViewBag.Title ?? "Smoothfriction - EasyBlog")</title>
+    <link rel="stylesheet/less" type="text/css" href="@Url.Content("~/Content/Site.css")" />
+    <link href="@Url.Content("~/Content/SyntaxHighlighter/shCore.css")" rel="stylesheet" type="text/css" />
+    <link href="@Url.Content("~/Content/SyntaxHighlighter/shCoreDefault.css")" rel="stylesheet" type="text/css" />
+    <script type="text/javascript" src="http://lesscss.googlecode.com/files/less-1.2.2.min.js"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shCore.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shAutoloader.js")"></script>
+    <script type="text/javascript"src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+    <script type="text/javascript">
+        SyntaxHighlighter.all({tagname : "pre"});
+    </script>
+    
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushPlain.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushPowerShell.js")"></script>
+	<script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushJScript.js")"></script> 
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushCSharp.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushCss.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushDiff.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushJScript.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushPhp.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushSql.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushXml.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushJava.js")"></script>
+    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushPython.js")"></script>
+    <meta charset="UTF-8"/>
+</head>
+<body>
+	<div id="page">
+		<header>
+			<div id="logo">
+			</div>
+			<nav>
+				<ul>
+					<li><a href="#">home</a></li>
+					<li>@Html.ActionLink("blog","Index","Article")</li>
+					<li><a href="#">work</a></li>
+					<li><a href="#">contact</a></li>
+				</ul>
+			</nav>
+		</header>
+		<div id="mainwrapper">
+            <section id="sidebar">
+                @Html.Action("Archive","Article")
+            </section>
+
+            <section id="main">
+                @RenderBody()
+            </section>
+            <footer>
+                &copy; @DateTime.Now.Year Smoothfriction
+            </footer>
+		</div>
+	</div>
+</body>
+</html>

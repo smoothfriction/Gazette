@@ -1,0 +1,18 @@
+﻿@model Gazette.Controllers.ListViewModel<Gazette.Controllers.Article>
+
+@foreach(var article in Model.Items)
+{
+    <h2>@Html.ActionLink(article.Title, "Details", "Article", new { article.Id }, null)</h2>
+    <div class="article">
+    <div>
+        @Html.Raw(article.Content)
+    </div>
+    <dl>
+        <dt>Author</dt>
+        <dd>@article.Author</dd>
+        <dt>Published</dt>
+        <dd>@article.Published.ToShortDateString() @@ @article.Published.ToShortTimeString()</dd>
+    </dl>
+</div>
+}
+

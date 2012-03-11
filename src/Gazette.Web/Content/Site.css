@@ -1,0 +1,110 @@
+﻿body {
+	height: 100%;
+	color: #416271;
+	font-family: 'Segoe UI', Verdana, Arial, Helvetica;
+	font-size: 13px;
+	letter-spacing: 1px;
+	line-height: 1.6;
+	nav {
+		ul {
+			margin: 0;
+			padding: 0;
+			list-style-type: none;
+			height: 80px;
+			li {
+				padding-right: 1%;
+				width: 24%;
+				display: block;
+				float: left;
+				height: 60px;
+				a {
+					text-align: center;
+					font-size: 16px;
+					font-weight: bold;
+					color: #fff;
+					display: block;
+					height: 60px;
+					line-height: 60px;
+					text-decoration: none;
+					background-color: #aaa;
+				}
+				a:hover {
+					background: #0af;
+				}
+}
+		}
+	}
+	
+	h2 { 
+		font-size: 30px;
+		margin-top: 0;
+		letter-spacing: 2px;				
+		font-weight: normal;
+		color: lighten(#0af, 10%);
+		margin-bottom: 0;
+		
+		a {
+			color: lighten(#0af, 10%);
+			text-decoration: none;
+		}
+	}
+
+	
+	div#mainwrapper {
+		padding-right: 1%;
+		section#main {
+            width: 70%;
+            padding-right: 10px;
+            
+			div.postNav {
+				font-size: 11px;
+			}
+            div.article 
+            {
+				overflow: auto;
+                dl {
+					float: right;
+					font-size: 10px;
+					margin: 0;
+					padding: 0;
+					font-style: italic;
+					dd {
+						float: left;
+						margin: 0;
+						padding: 0 10px;
+					}
+					dt {
+						float: left;
+						font-weight: bold;
+						margin: 0;
+						padding: 0;
+					}
+	            }
+            }
+		}
+		
+		section#sidebar {
+			float: right;
+			width: 24%;
+		}
+		
+
+	}
+		footer {
+			text-align: center;
+		}}
+
+#page {
+	max-width: 1000px;
+	margin: auto;
+}
+
+@media all and (max-width: 900px) {
+	section#sidebar {
+		display: none;
+	}
+
+	body div#mainwrapper section#main {
+        width: 99%;
+    }
+}

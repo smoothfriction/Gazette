@@ -1,0 +1,14 @@
+*resharper.user
+[Dd]ebug/
+[Rr]elease/
+[Bb]in/
+[Oo]bj/
+*.suo
+*.sln.cache
+_ReSharper.*/
+Output/
+*.resharper
+resharper.settings.xml
+*.user
+App_Data/
+Thumbs.db
