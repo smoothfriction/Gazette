@@ -1,0 +1,6 @@
+﻿<wpf:ResourceDictionary xml:space="preserve" xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:s="clr-namespace:System;assembly=mscorlib" xmlns:ss="urn:shemas-jetbrains-com:settings-storage-xaml" xmlns:wpf="http://schemas.microsoft.com/winfx/2006/xaml/presentation">
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip/=BA1FC737_002D438C_002D41C4_002DADC0_002DADE0AC7BEE01_002Fd_003AContent/@EntryIndexedValue">BA1FC737-438C-41C4-ADC0-ADE0AC7BEE01/d:Content</s:String>
+	<s:String x:Key="/Default/CodeInspection/ExcludedFiles/FilesAndFoldersToSkip/=BA1FC737_002D438C_002D41C4_002DADC0_002DADE0AC7BEE01_002Fd_003AScripts/@EntryIndexedValue">BA1FC737-438C-41C4-ADC0-ADE0AC7BEE01/d:Scripts</s:String>
+	<s:String x:Key="/Default/CodeStyle/FileHeader/FileHeaderText/@EntryValue">// Copyright 2011, Smoothfriction&#xD;
+// Author: Erik van Brakel&#xD;
+// Licensed under the BSD 3-Clause License, see license.txt for details, or go to // http://www.opensource.org/licenses/BSD-3-Clause</s:String></wpf:ResourceDictionary>

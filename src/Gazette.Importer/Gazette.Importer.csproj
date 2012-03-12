@@ -74,11 +74,6 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="export.xml">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
-  <ItemGroup>
     <ProjectReference Include="..\Gazette.Web\Gazette.csproj">
       <Project>{BA1FC737-438C-41C4-ADC0-ADE0AC7BEE01}</Project>
       <Name>Gazette</Name>

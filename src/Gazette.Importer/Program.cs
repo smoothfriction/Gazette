@@ -1,4 +1,7 @@
-﻿using System;
+﻿// // Copyright 2012, Smoothfriction
+// // Author: Erik van Brakel
+// // Licensed under the BSD 3-Clause License, see license.txt for details, or go to // http://www.opensource.org/licenses/BSD-3-Clause
+using System;
 using System.IO;
 using System.Linq;
 using System.Text;

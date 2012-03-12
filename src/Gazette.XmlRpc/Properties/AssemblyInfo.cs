@@ -1,18 +1,15 @@
-﻿// // Copyright 2012, Smoothfriction
-// // Author: Erik van Brakel
-// // Licensed under the BSD 3-Clause License, see license.txt for details, or go to // http://www.opensource.org/licenses/BSD-3-Clause
-using System.Reflection;
+﻿using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Runtime.InteropServices;
 
 // General Information about an assembly is controlled through the following 
 // set of attributes. Change these attribute values to modify the information
 // associated with an assembly.
-[assembly: AssemblyTitle("EasyBlog.Importer")]
+[assembly: AssemblyTitle("Gazette.XmlRpc")]
 [assembly: AssemblyDescription("")]
 [assembly: AssemblyConfiguration("")]
 [assembly: AssemblyCompany("")]
-[assembly: AssemblyProduct("EasyBlog.Importer")]
+[assembly: AssemblyProduct("Gazette.XmlRpc")]
 [assembly: AssemblyCopyright("Copyright ©  2012")]
 [assembly: AssemblyTrademark("")]
 [assembly: AssemblyCulture("")]
@@ -23,7 +20,7 @@ using System.Runtime.InteropServices;
 [assembly: ComVisible(false)]
 
 // The following GUID is for the ID of the typelib if this project is exposed to COM
-[assembly: Guid("81905237-7c06-4a2d-8379-6ac7e7956173")]
+[assembly: Guid("e69bf02d-02af-4889-84ed-24f92ffe4cb0")]
 
 // Version information for an assembly consists of the following four values:
 //

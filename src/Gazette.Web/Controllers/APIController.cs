@@ -1,8 +1,11 @@
-﻿using System;
+﻿// // Copyright 2012, Smoothfriction
+// // Author: Erik van Brakel
+// // Licensed under the BSD 3-Clause License, see license.txt for details, or go to // http://www.opensource.org/licenses/BSD-3-Clause
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
-using Gazette.Infrastructure.XmlRpc;
+using Gazette.XmlRpc;
 
 namespace Gazette.Controllers
 {
@@ -68,14 +71,6 @@ namespace Gazette.Controllers
         public ActionResult CreateMediaObject()
         {
             throw new NotImplementedException();
-        }
-    }
-
-    public static class SlugGenerator
-    {
-        public static string Generate(string input)
-        {
-            return input.Normalize(nor);
         }
     }
 

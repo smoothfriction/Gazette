@@ -1,10 +1,13 @@
-﻿using System.Web;
+﻿// // Copyright 2012, Smoothfriction
+// // Author: Erik van Brakel
+// // Licensed under the BSD 3-Clause License, see license.txt for details, or go to // http://www.opensource.org/licenses/BSD-3-Clause
+using System.Web;
 using System.Web.Mvc;
 using System.Web.Optimization;
 using System.Web.Routing;
 using AutoMapper;
 using Gazette.Controllers;
-using Gazette.Infrastructure.XmlRpc;
+using Gazette.XmlRpc;
 using Ninject;
 using Ninject.Modules;
 using Raven.Client;
@@ -96,6 +99,16 @@ namespace Gazette
         {
             _documentStore = new DocumentStore {Url = "http://localhost:8080", DefaultDatabase = "Blog"};
             _documentStore.Initialize();
+            using(var session = _documentStore.OpenSession())
+            {
+                var articles = session.Query<Article>();
+                foreach (var article in articles)
+                {
+                    article.Slug = SlugGenerator.Generate(article.Title);
+                    session.Store(article);
+                }
+                session.SaveChanges();
+            }
             IndexCreation.CreateIndexes(typeof (MvcApplication).Assembly, _documentStore);
         }
     }

@@ -1,10 +1,14 @@
+// // Copyright 2012, Smoothfriction
+// // Author: Erik van Brakel
+// // Licensed under the BSD 3-Clause License, see license.txt for details, or go to // http://www.opensource.org/licenses/BSD-3-Clause
+
 using System;
 using System.Globalization;
 using System.Linq;
 using System.Web.Mvc;
 using System.Xml.Linq;
 
-namespace Gazette.Infrastructure.XmlRpc
+namespace Gazette.XmlRpc
 {
     public class XmlRpcServiceAttribute : ActionFilterAttribute
     {
