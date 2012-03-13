@@ -1,4 +1,4 @@
-﻿@model Gazette.Controllers.ListViewModel<Gazette.Controllers.Article>
+﻿@model Gazette.Controllers.IndexViewModel
 
 @foreach(var article in Model.Items)
 {
@@ -15,4 +15,15 @@
     </dl>
 </div>
 }
+<p style="overflow:auto">
+    
+    @if (Model.NextPage.HasValue)
+    {
+        @Html.ActionLink("Older items", "Index", new { year = Model.Year, month = Model.Month, currentPage = Model.NextPage, pageSize = Model.PageSize })
+    }
+    @if (Model.PreviousPage.HasValue)
+    {
+        @Html.ActionLink("Newer items", "Index", new { year = Model.Year, month = Model.Month, currentPage = Model.PreviousPage, pageSize = Model.PageSize }, new { style ="float:right"})
+    }
+</p>
 

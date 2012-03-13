@@ -27,10 +27,11 @@ namespace Gazette.Controllers
             if (month.HasValue) articles = articles.Where(x => x.Published.Month == month);
 
             articles = articles.OrderByDescending(x => x.Published);
-            var viewModel = new ListViewModel<Article>(
+            var viewModel = new IndexViewModel(
                 articles,
                 pageSize,
-                currentPage);
+                currentPage)
+                {Year = year, Month = month};
             return View(viewModel);
         }
 
@@ -54,11 +55,23 @@ namespace Gazette.Controllers
         public T[] Items { get; set; }
         public int? NextPage { get; set; }
         public int? PreviousPage { get; set; }
+        public int PageSize { get; set; }
 
         public ListViewModel(IQueryable<T> dataSource, int pageSize, int currentPage)
         {
+            PageSize = pageSize;
+            var totalItems = dataSource.Count();
             Items = dataSource.Skip(currentPage*pageSize).Take(pageSize).ToArray();
+            if (currentPage != 0) PreviousPage = currentPage - 1;
+            if (pageSize *(1+currentPage) < totalItems) NextPage = currentPage + 1;
         }
+    }
+
+    public class IndexViewModel : ListViewModel<Article>
+    {
+        public int? Year { get; set; }
+        public int? Month { get; set; }
+        public IndexViewModel(IQueryable<Article> dataSource, int pageSize, int currentPage) : base(dataSource, pageSize, currentPage) {}
     }
 
     public class ArticleDetailViewModel
