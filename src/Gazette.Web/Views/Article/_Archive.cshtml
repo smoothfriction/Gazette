@@ -5,7 +5,8 @@
     <ul>
         @foreach (var entry in Model)
         {
-            <li><a href="#">@entry.Month.ToString("Y") (@entry.Count)</a></li>
+            var label = string.Format("{0} ({1})", entry.Month.ToString("Y"), entry.Count);
+            <li>@Html.ActionLink(label,"Index",new { year = entry.Month.Year, month = entry.Month.Month})</li>
         }
     </ul>
 </div>

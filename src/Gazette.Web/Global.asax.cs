@@ -32,6 +32,12 @@ namespace Gazette
             routes.MapXmlRpcRoute(name: "API", url: "{controller}");
 
             routes.MapRoute(
+                name: "Archive",
+                url: "Archive/{year}/{month}/{currentPage}/{pageSize}",
+                defaults : new { controller = "Article", action = "Index", currentPage = 0, pageSize = 10}
+                );
+
+            routes.MapRoute(
                 name: "ArticleIndex",
                 url: "Article/{currentPage}/{pageSize}",
                 defaults:  new {controller = "Article",action="Index",currentPage = 0, pageSize=10}

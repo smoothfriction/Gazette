@@ -11,17 +11,24 @@ namespace Gazette.Controllers
 {
     public class ArticleController : GazetteController
     {
-        public ActionResult Archive()
+        public PartialViewResult ArchiveList()
         {
             var entries = RavenSession.Query<ArchiveEntry, ArchiveIndex>().OrderByDescending(x => x.Month);
             var a = entries.ToArray();
             return PartialView("_Archive", a);
         }
 
-        public ActionResult Index(int pageSize = 10, int currentPage = 0)
+        public ActionResult Index(int? year, int? month, int pageSize = 10, int currentPage = 0)
         {
+            var articles = RavenSession.Query<Article>().Where(x => x.Published <= DateTime.Now);
+
+            // if year or month is an invalid value it just returns nothing, so no need to check for weird input
+            if (year.HasValue) articles = articles.Where(x => x.Published.Year == year);
+            if (month.HasValue) articles = articles.Where(x => x.Published.Month == month);
+
+            articles = articles.OrderByDescending(x => x.Published);
             var viewModel = new ListViewModel<Article>(
-                RavenSession.Query<Article>().OrderByDescending(x => x.Published),
+                articles,
                 pageSize,
                 currentPage);
             return View(viewModel);
