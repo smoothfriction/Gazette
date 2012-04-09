@@ -5,6 +5,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web.Mvc;
+using AutoMapper;
 using Gazette.XmlRpc;
 
 namespace Gazette.Controllers
@@ -12,9 +13,17 @@ namespace Gazette.Controllers
     [XmlRpcService]
     public class BloggerController : GazetteController
     {
+        private readonly IAuthenticationService _authentication;
+
+        public BloggerController(IAuthenticationService authentication)
+        {
+            _authentication = authentication;
+        }
+
         [ActionName("getUsersBlogs")]
         public ActionResult GetBlogs(string appKey, string username, string password)
         {
+            _authentication.ValidateUser(username, password);
             return new XmlRpcResponseResult(new [] { new BlogInfo { blogid = "0", blogName = "EasyBlog", url = "http://localhost/EasyBlog"}});
         }
 
@@ -28,9 +37,17 @@ namespace Gazette.Controllers
     [XmlRpcService]
     public class MetaweblogController : GazetteController
     {
+        private readonly IAuthenticationService _authentication;
+
+        public MetaweblogController(IAuthenticationService authentication)
+        {
+            _authentication = authentication;
+        }
+
         [ActionName("newPost")]
         public ActionResult NewPost(string blogid, string username, string password, BlogPost post, bool publish)
         {
+            _authentication.ValidateUser(username, password);
             var article = new Article
                                 {
                                     Title = post.Title,
@@ -47,12 +64,14 @@ namespace Gazette.Controllers
         [ActionName("editPost")]
         public ActionResult EditPost()
         {
+            //_authentication.ValidateUser(username, password);
             throw new NotImplementedException();
         }
 
         [ActionName("getCategories")]
         public ActionResult GetCategories()
         {
+            //_authentication.ValidateUser(username, password);
             var articles = RavenSession.Query<Article>().ToList();
             var actual = from article in articles
                             from c in article.Categories
@@ -64,7 +83,18 @@ namespace Gazette.Controllers
         [ActionName("getRecentPosts")]
         public ActionResult GetRecentPosts()
         {
-            throw new NotImplementedException();
+            //_authentication.ValidateUser(username, password);
+            var recentPosts = RavenSession.Query<Article>().OrderByDescending(x => x.Published).Take(10).ToList();
+            var actual = from post in recentPosts
+                         select new BlogPost
+                             {
+                                 Categories = post.Categories,
+                                 Date_Created_Gmt = post.Published,
+                                 Description = post.Content,
+                                 Title = post.Title
+                             };
+            return new XmlRpcResponseResult(actual.ToArray());
+
         }
 
         [ActionName("NewMediaObject")]
@@ -77,9 +107,17 @@ namespace Gazette.Controllers
     [XmlRpcService]
     public class WpController : GazetteController
     {
+        private IAuthenticationService _authentication;
+
+        public WpController(IAuthenticationService authentication)
+        {
+            _authentication = authentication;
+        }
+
         [ActionName("newCategory")]
         public ActionResult CreateCategory(string blogId, string username, string password, Category category)
         {
+            _authentication.ValidateUser(username, password);
             RavenSession.Store(category);
             return new XmlRpcResponseResult(category.Id);
         }

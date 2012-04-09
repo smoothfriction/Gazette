@@ -2,7 +2,7 @@
 
 @foreach(var article in Model.Items)
 {
-    <h2>@Html.ActionLink(article.Title, "Details", "Article", new { article.Id }, null)</h2>
+    <h2>@Html.ActionLink(article.Title, "Details", "Article", new { article.Id, article.Slug }, null)</h2>
     <div class="article">
     <div>
         @Html.Raw(article.Content)

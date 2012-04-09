@@ -1,30 +1,23 @@
+@using System.Web.Optimization
+@using Gazette.Infrastructure
 <!doctype html>
 <html>
 <head>
-	<title>@(ViewBag.Title ?? "Smoothfriction - EasyBlog")</title>
+	<title>@GazetteConfiguration.Instance.BlogName - @(ViewBag.Title ?? "Home")</title>
     <link rel="stylesheet/less" type="text/css" href="@Url.Content("~/Content/Site.css")" />
     <link href="@Url.Content("~/Content/SyntaxHighlighter/shCore.css")" rel="stylesheet" type="text/css" />
     <link href="@Url.Content("~/Content/SyntaxHighlighter/shCoreDefault.css")" rel="stylesheet" type="text/css" />
-    <script type="text/javascript" src="http://lesscss.googlecode.com/files/less-1.2.2.min.js"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shCore.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shAutoloader.js")"></script>
-    <script type="text/javascript"src="http://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+
+    <script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
     <script type="text/javascript">
-        SyntaxHighlighter.all({tagname : "pre"});
+        $.url = function (url) {
+            var path = '@Request.ApplicationPath';
+            if (path != '/') path = path + '/';
+            return path + url;
+        }
     </script>
-    
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushPlain.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushPowerShell.js")"></script>
-	<script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushJScript.js")"></script> 
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushCSharp.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushCss.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushDiff.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushJScript.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushPhp.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushSql.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushXml.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushJava.js")"></script>
-    <script type="text/javascript" src="@Url.Content("~/Scripts/SyntaxHighlighter/shBrushPython.js")"></script>
+    <script type="text/javascript" src="@BundleTable.Bundles.ResolveBundleUrl("~/Scripts/modules/js")"></script>
+    <script type="text/javascript" src="http://lesscss.googlecode.com/files/less-1.2.2.min.js"></script>
     <meta charset="UTF-8"/>
 </head>
 <body>

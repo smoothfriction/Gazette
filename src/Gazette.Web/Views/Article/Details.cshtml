@@ -4,7 +4,7 @@
 <div class="postNav">
     @if(Model.Previous != null)
     {
-        @Html.ActionLink(Model.Previous.Title, "Details", new { id = Model.Next.Id })
+        @Html.ActionLink(Model.Previous.Title, "Details", new { id = Model.Previous.Id })
     }
     @if (Model.Next != null)
     {
@@ -22,3 +22,4 @@
         <dd>@Model.Published.ToShortDateString() @@ @Model.Published.ToShortTimeString()</dd>
     </dl>
 </div>
+@{ Html.RenderPartial("_Disqus"); }

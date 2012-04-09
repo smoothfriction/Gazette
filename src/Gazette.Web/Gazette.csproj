@@ -127,13 +127,17 @@
     <Compile Include="Controllers\ArticleController.cs" />
     <Compile Include="Controllers\GazetteController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\SlugGenerator.cs" />
+    <Compile Include="GazetteModule.cs" />
+    <Compile Include="NinjectControllerBuilder.cs" />
+    <Compile Include="RavenDbModule.cs" />
+    <Compile Include="Services\IAuthenticationService.cs" />
+    <Compile Include="Infrastructure\SlugGenerator.cs" />
     <Compile Include="Controllers\SyndicateController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\ArchiveIndex.cs" />
-    <Compile Include="Models\AccountModels.cs" />
+    <Compile Include="Infrastructure\GazetteConfiguration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
@@ -157,6 +161,8 @@
     <Content Include="Global.asax" />
     <Content Include="manifest.xml" />
     <Content Include="Scripts\modernizr-2.0.6-development-only.js" />
+    <Content Include="Scripts\modules\syntaxHighlighter.js" />
+    <Content Include="Scripts\modules\mathjax.js" />
     <Content Include="Scripts\SyntaxHighlighter\shAutoloader.js" />
     <Content Include="Scripts\SyntaxHighlighter\shBrushAppleScript.js" />
     <Content Include="Scripts\SyntaxHighlighter\shBrushAS3.js" />
@@ -195,8 +201,6 @@
       <DependentUpon>Web.config</DependentUpon>
     </Content>
     <Content Include="Content\Site.css" />
-    <Content Include="Scripts\_references.js" />
-    <Content Include="Scripts\AjaxLogin.js" />
     <Content Include="Images\accent.png" />
     <Content Include="Images\aspNetHome.png" />
     <Content Include="Images\bullet.png" />
@@ -240,6 +244,9 @@
       <Project>{86CDADDE-7252-43B5-AB2D-4521A3586052}</Project>
       <Name>Gazette.XmlRpc</Name>
     </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="Views\Shared\_Disqus.cshtml" />
   </ItemGroup>
   <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath32)\Microsoft\VisualStudio\v10.0\WebApplications\Microsoft.WebApplication.targets" />

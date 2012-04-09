@@ -57,6 +57,7 @@
             padding-right: 10px;
             
 			div.postNav {
+			    overflow: auto;
 				font-size: 11px;
 			}
             div.article 

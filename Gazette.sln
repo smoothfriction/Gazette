@@ -7,7 +7,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gazette.Importer", "src\Gaz
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Licenses", "Licenses", "{62D485E2-5A02-4319-A6DE-8B02B2E89377}"
 	ProjectSection(SolutionItems) = preProject
-		gazette.txt = gazette.txt
+		gazette-license.txt = gazette-license.txt
 	EndProjectSection
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Gazette.XmlRpc", "src\Gazette.XmlRpc\Gazette.XmlRpc.csproj", "{86CDADDE-7252-43B5-AB2D-4521A3586052}"

@@ -41,8 +41,8 @@ namespace Gazette.Controllers
             if (article == null) return HttpNotFound();
             var viewModel = Mapper.Map<Article, ArticleDetailViewModel>(article);
 
-            viewModel.Previous = RavenSession.Query<Article>().FirstOrDefault(x => x.Published < article.Published);
-            viewModel.Next = RavenSession.Query<Article>().FirstOrDefault(x => x.Published > article.Published);
+            viewModel.Previous = RavenSession.Query<Article>().OrderByDescending(x => x.Published).FirstOrDefault(x => x.Published < article.Published);
+            viewModel.Next = RavenSession.Query<Article>().OrderByDescending(x => x.Published).FirstOrDefault(x => x.Published > article.Published);
 
             
             ViewBag.Title = article.Title;
